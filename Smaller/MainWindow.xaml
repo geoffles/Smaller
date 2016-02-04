@@ -1,0 +1,17 @@
+﻿<Window x:Class="Smaller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About" Height="156" Width="195"
+        Icon="smaller.ico">
+    <Grid>
+        <TextBlock TextWrapping="Wrap" >
+Smaller - Make small of regular tasks
+            <LineBreak />
+            <LineBreak />
+Copyright © G. Lydall 2015.
+            <LineBreak />
+            <LineBreak />
+Attribution to R. Giskard Reventlov for WPF notification icon.
+        </TextBlock>
+    </Grid>
+</Window>
