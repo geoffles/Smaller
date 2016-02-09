@@ -10,6 +10,7 @@
   -->
     <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
         <MenuItem Header="Run Now" Command="{Binding SmallifyCommand}"/>
+        <MenuItem Header="View Tasks" Command="{Binding ViewTasksCommand}"></MenuItem>
         <MenuItem Header="Sample Out" Command="{Binding TestTaskOutCommand}"/>
 
         <!--<MenuItem Header="" Command="{Binding CopyToClipboardCommand}" CommandParameter="" />-->

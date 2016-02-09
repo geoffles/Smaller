@@ -86,6 +86,10 @@
     <Compile Include="RunJobController.cs" />
     <Compile Include="RunResultViewModel.cs" />
     <Compile Include="SmallifyCommand.cs" />
+    <Compile Include="TaskListWindow.xaml.cs">
+      <DependentUpon>TaskListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TaskListWindowViewModel.cs" />
     <Compile Include="Tasks\Parameter.cs" />
     <Compile Include="Tasks\MailTask.cs" />
     <Compile Include="Tasks\RunHistory.cs" />
@@ -106,6 +110,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NotifyIconResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TaskListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

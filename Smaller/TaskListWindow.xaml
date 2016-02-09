@@ -1,0 +1,28 @@
+﻿<Window x:Class="Smaller.TaskListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TaskList" Height="300" Width="300">
+    <Grid>
+        <StackPanel>
+            <Label>Scheduled Tasks</Label>
+            <ListView ItemsSource="{Binding Things}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Type}"></TextBlock>
+                            <TextBlock FontWeight="Bold"> - Identifier:</TextBlock>
+                            <TextBlock Text="{Binding Id}"></TextBlock>
+                            <TextBlock FontWeight="Bold">Scheduled: </TextBlock>
+                            <TextBlock Text="{Binding ScheduledDate}"></TextBlock>
+                            <TextBlock FontWeight="Bold">Rundate:</TextBlock>
+                            <TextBlock Text="{Binding RunDate}"></TextBlock>
+                            <TextBlock FontWeight="Bold">Result:</TextBlock>
+                            <TextBlock Text="{Binding Result}"></TextBlock>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+    </Grid>
+</Window>

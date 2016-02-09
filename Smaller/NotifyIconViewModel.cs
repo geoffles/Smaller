@@ -58,6 +58,24 @@ namespace Smaller
             }
         }
 
+        public ICommand ViewTasksCommand
+        {
+            get
+            {
+                return new DelegateCommand
+                {
+                    CommandAction = () =>
+                    {
+                        var window =
+                            //Application.Current.MainWindow =
+                            new TaskListWindow(TaskListWindowViewModel.From(JobRunner.GetAllTasks(), JobRunner.GetAllHistory()));
+                        //Application.Current.MainWindow.Show();
+                        window.Show();
+                    }
+                };
+            }
+        }
+
 
         private void SampleTask()
         {
