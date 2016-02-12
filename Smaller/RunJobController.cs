@@ -50,11 +50,13 @@ namespace Smaller
         {
             new Thread(() =>
             {
-                while (true)
+                // only wait for signals while the app is running
+                while (Application.Current != null)
                 {
-                    _showSignal.WaitOne();
-
-                    RunJobs();
+                    if (_showSignal.WaitOne(500))
+                    {
+                        RunJobs();
+                    }
                 }
             }).Start();
         }
