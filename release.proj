@@ -1,0 +1,25 @@
+<Project DefaultTargets="Build"
+    xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    
+    <Target Name="Build">
+        <Delete Files="release.zip;Bin\*" />
+        <MSBuild Projects="Smaller\Smaller.csproj" Properties="Platform=AnyCPU;Configuration=Release" />
+        
+        <Copy SourceFiles="License.htm" DestinationFiles="Bin\License.htm" />
+        
+        <MSBuild Projects="release.proj" Targets="Compress" Properties="SourceFolder=Bin;DestinationFile=release.zip" />
+    </Target>
+    
+    <Target Name="Compress">    
+        <PropertyGroup>
+            <PowerShellExe Condition=" '$(PowerShellExe)'=='' ">%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellExe>
+            <PowershellScript>&amp; { try { Add-Type -assembly 'System.IO.Compression.FileSystem'; [IO.Compression.zipfile]::CreateFromDirectory( '$(SourceFolder)', '$(DestinationFile)') } catch { throw } };</PowershellScript>
+        </PropertyGroup>
+        <Error Condition=" '$(SourceFolder)' == '' OR '$(DestinationFile)' == '' " Text="Source and/or Destination are not defined" />
+        <Exec
+            IgnoreExitCode="false"
+            Command="$(PowerShellExe) -NonInteractive -executionpolicy Unrestricted -command &quot;$(PowershellScript)&quot;" />
+    </Target>
+
+    
+</Project>
