@@ -36,7 +36,8 @@ namespace Smaller
                     RunDate = p.History == null ? null : (DateTime?)p.History.RunDate,
                     ScheduledDate = p.Task.ScheduledDate,
                     Result = Null(p.History).Result
-                });
+                })
+                .OrderBy(p => p.ScheduledDate);
 
             return new TaskListWindowViewModel
             {
